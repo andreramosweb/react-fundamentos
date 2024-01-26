@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 
 export default function Header(props){
   return (
@@ -9,4 +11,8 @@ export default function Header(props){
       <hr/>
     </>
   );
+}
+
+Header.propTypes = {
+  children: PropTypes.node
 }

@@ -4,6 +4,13 @@ import Post from "./Post";
 import Header from "./Header";
 
 
+const posts = [
+  {title: "Título post 1", subtitle : "Subtítulo post 01", likes : 20},
+  {title: "Título post 2", subtitle : "Subtítulo post 02", likes : 30},
+  {title: "Título post 3", subtitle : "Subtítulo post 03", likes : 10},
+];
+
+
 function App(){
   return (
    <> 
@@ -11,16 +18,17 @@ function App(){
         <p>Essa é a prop children</p>
       </Header>
 
-      <Post 
-        title="Título post 01"
-        subtitle="Subtítulo post 01"  
-      />
-
-      <Post 
-        title="Título post 02"
-        subtitle="Subtítulo post 02"  
-      />
-
+     
+      {posts.map(post => (
+        <Post
+          key={post.title}
+          likes={post.likes}
+          post={{
+            title : post.title,
+            subtitle : post.subtitle
+           }}
+        />
+      ))}
    </>
   )
 }
